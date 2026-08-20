@@ -67,7 +67,7 @@ function hbar(series, opts) {
       s += '<text x="0" y="' + (y + 12) + '" class="hlab">' + esc(d.label) + '</text>' +
            '<text x="' + W + '" y="' + (y + 12) + '" text-anchor="end" class="hval">' + fmt(d.value) + '</text>' +
            '<rect x="0" y="' + (y + 20) + '" width="' + r1(d.value / max * W) + '" height="14" rx="3" fill="' +
-           (d.color || opts.color || '#2C5468') + '"/>';
+           (d.color || opts.color || '#2F6D5E') + '"/>';
     });
     return s + '</svg>';
   }
@@ -80,7 +80,7 @@ function hbar(series, opts) {
     var y = top + i * rowH, w = d.value / max * maxW, tb = y + 15;
     s += '<text x="0" y="' + tb + '" class="hlab">' + esc(d.label) + '</text>' +
          '<rect x="' + barX + '" y="' + y + '" width="' + r1(w) + '" height="' + bh + '" rx="3" fill="' +
-         (d.color || opts.color || '#2C5468') + '"/>' +
+         (d.color || opts.color || '#2F6D5E') + '"/>' +
          '<text x="' + r1(barX + w + 8) + '" y="' + tb + '" class="hval">' + fmt(d.value) + '</text>';
   });
   return s + '</svg>';

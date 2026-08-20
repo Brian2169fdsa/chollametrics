@@ -25,11 +25,11 @@ var WINDOWS = {
 };
 
 var CHANNEL_META = {
-  website:   { name: 'Website',   color: '#1C9AD6' },
-  facebook:  { name: 'Facebook',  color: '#2C5468' },
-  instagram: { name: 'Instagram', color: '#E17F55' },
-  linkedin:  { name: 'LinkedIn',  color: '#D98A1F' },
-  apex:     { name: 'Apex',     color: '#D98A1F' }
+  website:   { name: 'Website',   color: '#3090CC' },
+  facebook:  { name: 'Facebook',  color: '#2F6D5E' },
+  instagram: { name: 'Instagram', color: '#D9784F' },
+  linkedin:  { name: 'LinkedIn',  color: '#D97B2F' },
+  apex:     { name: 'Apex',     color: '#C05430' }
 };
 
 /* metric factory — v = value, w = source window, extra = display options */
@@ -62,9 +62,9 @@ var SNAP_AUG20 = {
       { lab: 'LinkedIn impr.',   num: '331',  note: '16 post clicks · 6.0% eng. rate', w: WINDOWS.liAug20 }
     ],
     reach: [
-      { label: 'Facebook views (28d)',       value: 4600, color: '#2C5468', w: WINDOWS.fbAug20 },
-      { label: 'Website visits (14d)',       value: 1003, color: '#1C9AD6', w: WINDOWS.siteAug20_14 },
-      { label: 'LinkedIn impressions (30d)', value: 331,  color: '#D98A1F', w: WINDOWS.liAug20 }
+      { label: 'Facebook views (28d)',       value: 4600, color: '#2F6D5E', w: WINDOWS.fbAug20 },
+      { label: 'Website visits (14d)',       value: 1003, color: '#3090CC', w: WINDOWS.siteAug20_14 },
+      { label: 'LinkedIn impressions (30d)', value: 331,  color: '#D97B2F', w: WINDOWS.liAug20 }
     ],
     reachNote: 'Each bar is labelled with its own window length because they are NOT the same: Facebook is 28 days, the ' +
                'website figure is 14 days and LinkedIn is 30 days. Read the bars as per-channel totals for those windows, ' +
