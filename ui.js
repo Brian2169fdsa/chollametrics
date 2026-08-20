@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Sanctuary Recovery Centers — shared render helpers
+   Cholla Behavioral Health — shared render helpers
    Chart geometry matches the original hand-built SVGs: 560-wide viewBox,
    18px bar gap, 176 baseline, value label 7px above the bar, x-labels at 192.
    ========================================================================== */
@@ -184,7 +184,7 @@ function noExport(lastWindow) {
 /* ── page chrome shared by both pages ─────────────────────────────────── */
 function pageHeader(titleText, line1, line2, current) {
   return '<header>' +
-    '<img src="' + LOGO + '" alt="Sanctuary Recovery Centers">' +
+    '<img src="' + LOGO + '" alt="Cholla Behavioral Health">' +
     '<div class="rtitle">' +
       '<div class="k">' + esc(titleText) + '</div>' +
       '<div class="s">' + line1 + '</div>' +
@@ -200,7 +200,7 @@ function pageHeader(titleText, line1, line2, current) {
 
 function pageFooter(dataLine) {
   return '<hr class="phoenix"><footer>' +
-    'Sanctuary Recovery Centers · True Healing &amp; Continued Care™ · Phoenix, AZ · (480) 999-0353<br>' +
+    'Cholla Behavioral Health · Mental Health &amp; Co-Occurring Care · Arizona<br>' +
     'Internal report. Source data windows: ' + esc(dataLine) + '. ' +
     'Channels without a new export for a period are shown blank rather than carried forward.' +
     '</footer>';

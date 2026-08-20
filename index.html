@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sanctuary Recovery Centers — Performance Report</title>
+<title>Cholla Behavioral Health — Performance Report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="report.css">
@@ -51,10 +51,14 @@ function renderFacebook(c) {
       ? card(c.formats.title, hbar(c.formats.series, { barX: c.formats.barX, color: meta.color, W: chartW(true) }), c.formats.note)
       : card(c.supporting.title, table(c.supporting.head, c.supporting.rows))
   );
-  s += c.peers
-    ? grid2(card(c.topPosts.title, table(c.topPosts.head, c.topPosts.rows)),
-            card(c.peers.title, table(c.peers.head, c.peers.rows), c.peers.note))
-    : card(c.topPosts.title, table(c.topPosts.head, c.topPosts.rows));
+  if (c.topPosts) {
+    s += c.peers
+      ? grid2(card(c.topPosts.title, table(c.topPosts.head, c.topPosts.rows)),
+              card(c.peers.title, table(c.peers.head, c.peers.rows), c.peers.note))
+      : card(c.topPosts.title, table(c.topPosts.head, c.topPosts.rows));
+  }
+  if (c.audience) { s += card(c.audience.title, table(c.audience.head, c.audience.rows), c.audience.note); }
+  if (c.pendingNote) { s += '<div class="warn">' + c.pendingNote + '</div>'; }
   if (c.warn) { s += '<div class="warn">' + c.warn + '</div>'; }
   if (c.footnote) { s += '<p class="sub" style="margin-top:16px">' + c.footnote + '</p>'; }
   return s + '</section>';
@@ -80,6 +84,7 @@ function renderLinkedIn(c) {
   if (c.weekly) {
     s += grid2(card(c.weekly.title, vbar(c.weekly.series, meta.color, chartW(true)), c.weekly.note),
                card(c.visitors.title, table(c.visitors.head, c.visitors.rows)));
+    if (c.search) { s += card(c.search.title, table(c.search.head, c.search.rows)); }
   } else if (c.monthly) {
     s += grid2(card(c.monthly.title, vbar(c.monthly.series, meta.color, chartW(true)), c.monthly.note),
                card(c.monthlyFollowers.title, vbar(c.monthlyFollowers.series, meta.color, chartW(true)), c.monthlyFollowers.note));
@@ -95,12 +100,15 @@ function renderLinkedIn(c) {
       COMPETITORS.note);
   }
 
-  if (c.industry) {
-    s += grid2(card(c.industry.title, table(c.industry.head, c.industry.rows)),
-               card(c.location.title, table(c.location.head, c.location.rows)));
-  } else {
+  if (c.location && c.jobFunction) {
     s += grid2(card(c.location.title, table(c.location.head, c.location.rows)),
                card(c.jobFunction.title, table(c.jobFunction.head, c.jobFunction.rows)));
+  }
+  if (c.industry && c.seniority) {
+    s += grid2(card(c.industry.title, table(c.industry.head, c.industry.rows)),
+               card(c.seniority.title, table(c.seniority.head, c.seniority.rows)));
+  }
+  if (c.visitorFunction && c.searchingCompanies) {
     s += grid2(card(c.visitorFunction.title, table(c.visitorFunction.head, c.visitorFunction.rows)),
                card(c.searchingCompanies.title, table(c.searchingCompanies.head, c.searchingCompanies.rows)));
   }
@@ -111,6 +119,13 @@ function renderLinkedIn(c) {
 
 function mutedSection(key, c) {
   var meta = CHANNEL_META[key];
+  if (c.comingSoon) {
+    return '<section class="muted">' +
+      '<div class="sechead"><span class="dot" style="background:' + meta.color + '"></span><h2>' + meta.name + '</h2></div>' +
+      '<p class="sub">Coming soon</p>' +
+      '<div class="placeholder">' + meta.name + ' reporting is coming soon — the channel joins this report with its first export.</div>' +
+    '</section>';
+  }
   return '<section class="muted">' +
     '<div class="sechead"><span class="dot" style="background:' + meta.color + '"></span><h2>' + meta.name + '</h2></div>' +
     '<p class="sub">' + (c.pending ? 'Verified export pending' : 'No export available for this reporting period') + '</p>' +
@@ -144,16 +159,16 @@ function renderRecommendations(snap) {
   return s + '</ol></section>';
 }
 
-/* ── BizIQ campaign report (vendor report — not period-scoped) ───────── */
-function renderBizIQ() {
-  var B = BIZIQ;
+/* ── Apex campaign report (vendor report — not period-scoped) ───────── */
+function renderApex() {
+  var B = APEX;
   return '<section>' +
   '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap">' +
     '<div>' +
       '<div class="sechead"><span class="dot" style="background:var(--gold)"></span><h2>' + esc(B.title) + '</h2></div>' +
       '<p class="sub">' + esc(B.source) + ' &nbsp;·&nbsp; reporting period: <span class="win-chip">' + esc(B.window) + '</span></p>' +
     '</div>' +
-    '<img src="logo.png" alt="BizIQ — smart local marketing" style="height:44px;width:auto;display:block;flex:0 0 auto">' +
+    '<img src="logo.png" alt="Apex Web Studios" style="height:44px;width:auto;display:block;flex:0 0 auto">' +
   '</div>' +
   '<p class="lead">' + B.intro + '</p>' +
   card(B.listings.title, table(B.listings.head, B.listings.rows)) +
@@ -175,11 +190,13 @@ function renderBizIQ() {
 }
 
 function renderL10() {
+  var body = L10.rows.length
+    ? card(L10.owner, table(L10.head, L10.rows, { numeric: function () { return false; } }))
+    : '<div class="placeholder" style="padding:16px">No L10 items loaded. Add projects on the Projects page, or send ' +
+      'over the current L10 dashboard to populate this section.</div>';
   return '<section><div class="eyebrow">L10 meeting</div>' +
     '<h2 style="font-size:22px;margin:6px 0 4px">Updates &amp; action items</h2>' +
-    '<p class="sub">' + esc(L10.source) + '</p>' +
-    card(L10.owner, table(L10.head, L10.rows, { numeric: function () { return false; } })) +
-    '<div class="placeholder" style="padding:16px">Other owners\' L10 items can be added here from the same dashboard on request.</div>' +
+    '<p class="sub">' + esc(L10.source) + '</p>' + body +
   '</section>';
 }
 
@@ -209,7 +226,7 @@ function render(id) {
     renderInstagram(ch.instagram) +
     renderLinkedIn(ch.linkedin) +
     renderRecommendations(snap) +
-    renderBizIQ() +
+    renderApex() +
     renderL10() +
     pageFooter(snap.dataLine);
 
@@ -218,7 +235,7 @@ function render(id) {
     render(this.value);
     document.getElementById('period').focus();
   });
-  document.title = 'Sanctuary Recovery Centers — ' + snap.label;
+  document.title = 'Cholla Behavioral Health — ' + snap.label;
 }
 
 var _current = REPORT_ORDER[0], _w = 0, _t;

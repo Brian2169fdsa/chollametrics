@@ -1,13 +1,13 @@
 # Making This Site a Template for New Clients
 
 How to turn this performance-report site into a reusable template, and how to
-spin up a copy for a new company without carrying Sanctuary's data along.
+spin up a copy for a new company without carrying Cholla's data along.
 
 ---
 
 ## Why you must NOT clone or fork
 
-The git history of this repository contains **every version of Sanctuary's
+The git history of this repository contains **every version of Cholla's
 internal data** — report metrics, the L10 leadership dashboard, competitor
 analysis — all marked Internal / Confidential. Cloning or forking copies that
 history forever, even after you overwrite `data.js`. A fork also stays
@@ -27,7 +27,7 @@ publicly linked to the original on GitHub.
 ### Option B — fresh init (no GitHub template)
 ```bash
 # copy the working files only — no .git directory
-mkdir acmemetrics && cp sanctuarymetrics/{*.html,*.js,*.css,*.png,README.md,TEMPLATE.md} acmemetrics/
+mkdir acmemetrics && cp chollametrics/{*.html,*.js,*.css,*.png,README.md,TEMPLATE.md} acmemetrics/
 cd acmemetrics && git init && git add -A && git commit -m "Initial commit from report-site template"
 # create an empty repo on GitHub, then:
 git remote add origin https://github.com/<you>/acmemetrics && git push -u origin main
@@ -49,7 +49,7 @@ Everything else is data-driven — these are the ONLY places to touch:
 | `ui.js` | `pageFooter()` — company name, tagline, city, phone. `pageHeader()` needs no edits (it uses `LOGO`) |
 | `report.css` | Brand tokens in `:root` (`--blue --teal --coral --gold --ink --muted --line --paper`) and the `.phoenix` gradient stops |
 | `index.html`, `compare.html`, `twoweeks.html`, `projects.html` | The `<title>` tag in each |
-| `logo.png` | Vendor logo shown in the vendor/SEO section (currently BizIQ) — replace or remove the `<img>` in `renderBizIQ()` |
+| `logo.png` | Vendor logo shown in the vendor/SEO section (currently Apex) — replace or remove the `<img>` in `renderApex()` |
 
 To generate the `LOGO` data-URI from a PNG:
 ```bash
@@ -60,8 +60,8 @@ echo "data:image/png;base64,$(base64 -w0 client-logo.png)"
 
 ## Data reset (`data.js`)
 
-Delete the Sanctuary contents of every object below and rebuild from the new
-client's exports. **Do not leave any Sanctuary rows behind.**
+Delete the Cholla contents of every object below and rebuild from the new
+client's exports. **Do not leave any Cholla rows behind.**
 
 | Object | What it holds |
 |---|---|
@@ -70,7 +70,7 @@ client's exports. **Do not leave any Sanctuary rows behind.**
 | `REPORTS` + `REPORT_ORDER` | One snapshot object per reporting date; newest first in `REPORT_ORDER` (the selector defaults to `REPORT_ORDER[0]`) |
 | `SERIES` | Trendable metric series for the Compare page — each point `{ label, value, w }` |
 | `COMPETITORS` | Competitor table (rendered on the Report page's LinkedIn section and the Compare page) |
-| `BIZIQ` | Vendor/SEO campaign section — rename/repurpose per the client's vendor |
+| `APEX` | Vendor/SEO campaign section — rename/repurpose per the client's vendor |
 | `TWOWEEK` | The two-weeks-at-a-glance tables |
 | `L10` | Leadership-dashboard rocks shown in the L10 section and seeded into the Projects tab |
 

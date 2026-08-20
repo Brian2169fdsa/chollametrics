@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sanctuary Recovery Centers — Project Tracking</title>
+<title>Cholla Behavioral Health — Project Tracking</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="report.css">
@@ -115,12 +115,12 @@ function render() {
   document.getElementById('sheet').innerHTML =
     pageHeader('Project Tracking',
       'Marketing rocks &amp; projects &nbsp;·&nbsp; Internal / Confidential',
-      'Seeded from the L10 Leadership dashboard · statuses as of the Aug 20, 2026 meeting', 'projects') +
+      'L10 data cleared for the Cholla rebrand — projects added below are kept', 'projects') +
     '<section>' +
       '<div class="eyebrow">Project tracker</div>' +
       '<h2 style="font-size:26px;margin:6px 0 0">Rocks &amp; projects</h2>' +
-      '<p class="lead">Every marketing rock from the L10 dashboard with its latest reported status, plus any projects ' +
-      'added below. L10 rows update when the dashboard is re-imported; rows added here can be edited or removed at any time.</p>' +
+      '<p class="lead">Projects added below, plus any marketing rocks once an L10 dashboard is imported. The L10 list ' +
+      'is currently empty; rows added here can be edited or removed at any time.</p>' +
       chips(items) +
       '<div class="tw"><table><thead><tr><th>Item</th><th>Owner</th><th>Status</th><th>Importance</th><th>Complete date</th><th>Source</th></tr></thead>' +
       '<tbody>' + rowsHtml(items) + '</tbody></table></div>' +
@@ -141,7 +141,7 @@ function render() {
         '<button class="btn" id="np-add">Add project</button>' +
       '</div></div>' +
     '</section>' +
-    pageFooter('L10 Leadership dashboard (Rocks sheet), Aug 20, 2026 meeting column');
+    pageFooter('Project tracker — no L10 data currently loaded');
 
   applyDataLabels();
 
