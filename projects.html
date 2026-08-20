@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanctuary Recovery Centers — Project Tracking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="report.css">
+</head>
+<body><div class="sheet" id="sheet"></div>
+<script src="data.js"></script>
+<script src="ui.js"></script>
+<script>
+/* ── project tracker ──────────────────────────────────────────────────────
+   Seed rows come from the L10 dashboard (single source of truth: the L10
+   object in data.js). Rows added here are stored in THIS BROWSER's
+   localStorage — to make an item permanent for everyone, it goes into
+   data.js like the seeds.                                                 */
+var STATUSES = ['On-track', 'Off Track', 'In Progress', 'On Hold', 'New', 'Complete'];
+var IMPORTANCE = ['Hot', 'Med', 'Cold'];
+var LS_KEY = 'src_projects_v1';
+var META_KEY = 'src_projects_meta_v1';   /* importance/date set on L10 seed rows */
+
+function seedMeta() {
+  try { return JSON.parse(localStorage.getItem(META_KEY)) || {}; } catch (e) { return {}; }
+}
+function saveSeedMeta(m) { localStorage.setItem(META_KEY, JSON.stringify(m)); }
+function impTag(v) {
+  if (!v) { return '—'; }
+  return '<span class="tag ' + v.toLowerCase() + '">' + esc(v) + '</span>';
+}
+function fmtDate(iso) {
+  if (!iso) { return ''; }
+  var p = iso.split('-');
+  return p.length === 3 ? p[1] + '/' + p[2] + '/' + p[0] : iso;
+}
+
+function seedItems() {
+  var meta = seedMeta();
+  return L10.rows.map(function (r) {
+    var m = meta[r[0]] || {};
+    return { title: r[0], owner: 'Brian Reinhart', status: r[1].text,
+             importance: m.importance || '', due: m.due || '',
+             source: 'L10 dashboard · Aug 20, 2026', seed: true };
+  });
+}
+function customItems() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; } catch (e) { return []; }
+}
+function saveCustom(list) { localStorage.setItem(LS_KEY, JSON.stringify(list)); }
+
+function tagFor(status) {
+  var s = status.toLowerCase();
+  if (s.indexOf('off') === 0) { return 'lo'; }
+  if (s === 'on-track' || s === 'complete') { return 'hi'; }
+  return 'eq';
+}
+
+function chips(items) {
+  var counts = {};
+  items.forEach(function (i) { counts[i.status] = (counts[i.status] || 0) + 1; });
+  var hot = items.filter(function (i) { return i.importance === 'Hot'; }).length;
+  var s = '<div class="chips"><span class="c">' + items.length + ' items</span>' +
+          (hot ? '<span class="c" style="color:#C0492B">' + hot + ' Hot</span>' : '');
+  STATUSES.forEach(function (st) {
+    if (counts[st]) { s += '<span class="c">' + counts[st] + ' ' + esc(st) + '</span>'; }
+  });
+  return s + '</div>';
+}
+
+function rowsHtml(items) {
+  var s = '';
+  items.forEach(function (it) {
+    var ref = it.seed ? 'seed:' + it.title : 'custom:' + it.customIdx;
+    var statusCell;
+    if (it.seed) {
+      statusCell = '<span class="tag ' + tagFor(it.status) + '">' + esc(it.status) + '</span>';
+    } else {
+      statusCell = '<select class="statsel" data-idx="' + it.customIdx + '" aria-label="Status">';
+      STATUSES.forEach(function (st) {
+        statusCell += '<option' + (st === it.status ? ' selected' : '') + '>' + esc(st) + '</option>';
+      });
+      statusCell += '</select> <button class="btn ghost" data-del="' + it.customIdx + '">remove</button>';
+    }
+    var impCell = '<select class="statsel impsel" data-ref="' + esc(ref) + '" aria-label="Importance">' +
+      '<option value=""' + (it.importance ? '' : ' selected') + '>—</option>' +
+      IMPORTANCE.map(function (v) {
+        return '<option' + (v === it.importance ? ' selected' : '') + '>' + v + '</option>';
+      }).join('') + '</select>';
+    var dateCell = '<input type="date" class="statsel duesel" data-ref="' + esc(ref) + '" value="' +
+      esc(it.due || '') + '" aria-label="Complete date">';
+    s += '<tr><td>' + esc(it.title) + '</td><td>' + esc(it.owner) + '</td><td>' + statusCell +
+         '</td><td>' + impCell + '</td><td>' + dateCell + '</td><td>' + esc(it.source) + '</td></tr>';
+  });
+  return s;
+}
+
+/* write an importance/date edit back to the right store */
+function applyEdit(ref, field, value) {
+  if (ref.indexOf('seed:') === 0) {
+    var meta = seedMeta(), key = ref.slice(5);
+    meta[key] = meta[key] || {};
+    meta[key][field] = value;
+    saveSeedMeta(meta);
+  } else {
+    var list = customItems();
+    list[+ref.slice(7)][field] = value;
+    saveCustom(list);
+  }
+}
+
+function render() {
+  var custom = customItems().map(function (c, i) { c.customIdx = i; return c; });
+  var items = seedItems().concat(custom);
+
+  document.getElementById('sheet').innerHTML =
+    pageHeader('Project Tracking',
+      'Marketing rocks &amp; projects &nbsp;·&nbsp; Internal / Confidential',
+      'Seeded from the L10 Leadership dashboard · statuses as of the Aug 20, 2026 meeting', 'projects') +
+    '<section>' +
+      '<div class="eyebrow">Project tracker</div>' +
+      '<h2 style="font-size:26px;margin:6px 0 0">Rocks &amp; projects</h2>' +
+      '<p class="lead">Every marketing rock from the L10 dashboard with its latest reported status, plus any projects ' +
+      'added below. L10 rows update when the dashboard is re-imported; rows added here can be edited or removed at any time.</p>' +
+      chips(items) +
+      '<div class="tw"><table><thead><tr><th>Item</th><th>Owner</th><th>Status</th><th>Importance</th><th>Complete date</th><th>Source</th></tr></thead>' +
+      '<tbody>' + rowsHtml(items) + '</tbody></table></div>' +
+    '</section>' +
+    '<section>' +
+      '<div class="sechead"><span class="dot" style="background:var(--blue)"></span><h2>Add a project</h2></div>' +
+      '<p class="sub">Added items are saved in this browser only. To make one permanent for everyone, send it over ' +
+      'and it will be added to the site\'s data model alongside the L10 seeds.</p>' +
+      '<div class="card"><div class="addform">' +
+        '<div class="f"><label for="np-title">Project / item</label><input type="text" id="np-title" placeholder="e.g. Q4 video content calendar"></div>' +
+        '<div class="f"><label for="np-owner">Owner</label><input type="text" id="np-owner" placeholder="e.g. Brian Reinhart"></div>' +
+        '<div class="f"><label for="np-status">Status</label><select id="np-status">' +
+          STATUSES.map(function (s) { return '<option>' + s + '</option>'; }).join('') + '</select></div>' +
+        '<div class="f"><label for="np-imp">Importance</label><select id="np-imp">' +
+          '<option value="">—</option>' +
+          IMPORTANCE.map(function (v) { return '<option>' + v + '</option>'; }).join('') + '</select></div>' +
+        '<div class="f"><label for="np-due">Complete date</label><input type="date" id="np-due"></div>' +
+        '<button class="btn" id="np-add">Add project</button>' +
+      '</div></div>' +
+    '</section>' +
+    pageFooter('L10 Leadership dashboard (Rocks sheet), Aug 20, 2026 meeting column');
+
+  applyDataLabels();
+
+  document.getElementById('np-add').addEventListener('click', function () {
+    var t = document.getElementById('np-title').value.trim();
+    if (!t) { document.getElementById('np-title').focus(); return; }
+    var list = customItems();
+    list.push({
+      title: t,
+      owner: document.getElementById('np-owner').value.trim() || '—',
+      status: document.getElementById('np-status').value,
+      importance: document.getElementById('np-imp').value,
+      due: document.getElementById('np-due').value,
+      source: 'added here · ' + new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    });
+    saveCustom(list);
+    render();
+  });
+
+  document.querySelectorAll('select.statsel[data-idx]').forEach(function (sel) {
+    sel.addEventListener('change', function () {
+      var list = customItems();
+      list[+this.getAttribute('data-idx')].status = this.value;
+      saveCustom(list);
+      render();
+    });
+  });
+  document.querySelectorAll('.impsel').forEach(function (sel) {
+    sel.addEventListener('change', function () {
+      applyEdit(this.getAttribute('data-ref'), 'importance', this.value);
+      render();
+    });
+  });
+  document.querySelectorAll('.duesel').forEach(function (inp) {
+    inp.addEventListener('change', function () {
+      applyEdit(this.getAttribute('data-ref'), 'due', this.value);
+      render();
+    });
+  });
+  document.querySelectorAll('[data-del]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var list = customItems();
+      list.splice(+this.getAttribute('data-del'), 1);
+      saveCustom(list);
+      render();
+    });
+  });
+}
+render();
+</script>
+</body></html>
