@@ -11,17 +11,24 @@ var LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXgAAADcCAMAAABNuUrYAA
 /* ── source windows (verbatim from the exports) ───────────────────────── */
 var WINDOWS = {
   siteAug6:      'Jul 5 – Aug 5, 2026',
-  liAug20:       'Jul 20 – Aug 18, 2026',
-  li15Aug20:     'Aug 4 – 18, 2026',
+  liFullAug24:   'May 25 – Aug 22, 2026',
+  li15Aug24:     'Aug 8 – 22, 2026',
+  li15Aug24p:    'Jul 24 – Aug 7, 2026',
   liSearchAug20: 'Aug 12 – 18, 2026',
-  competitor30:  'Jul 20 – Aug 18, 2026',
-  fbAug20:       'Jul 23 – Aug 19, 2026',
-  fb7Aug20:      'Aug 13 – 19, 2026',
+  competitor90:  'May 25 – Aug 22, 2026',
+  fb90Aug24:     'May 26 – Aug 23, 2026',
+  fb28Aug24:     'Jul 27 – Aug 23, 2026',
+  fb28Aug24p:    'Jun 29 – Jul 26, 2026',
+  fb14Aug24:     'Aug 10 – 23, 2026',
+  fb14Aug24p:    'Jul 27 – Aug 9, 2026',
+  fb7Aug24:      'Aug 17 – 23, 2026',
+  fb7Aug24p:    'Aug 10 – 16, 2026',
   siteAug20_14:  'Aug 6 – 19, 2026',
   siteAug20_7:   'Aug 13 – 19, 2026',
   twLast:        'Aug 6 – 19, 2026',
   twPrior:       'Jul 23 – Aug 5, 2026',
-  apex:          '{{CONFIRM REPORTING PERIOD}}'
+  apex:          '{{CONFIRM REPORTING PERIOD}}',
+  apexSeoMay26:  'May 1 – 31, 2026'
 };
 
 var CHANNEL_META = {
@@ -46,35 +53,40 @@ var SNAP_AUG20 = {
   id: '2026-08-20',
   label: 'Aug 20 snapshot',
   reportDate: 'Aug 20, 2026',
-  dataLine: 'Facebook 07/23–08/19 (daily 08/13–08/19) · Website 08/06–08/19 (sources 08/13–08/19) · LinkedIn 07/20–08/18 · Instagram coming soon',
+  dataLine: 'Facebook 05/26–08/23 daily export (28-day cut 07/27–08/23) · Website 08/06–08/19 (sources 08/13–08/19) · LinkedIn 05/25–08/22 daily export · Instagram coming soon',
   summary: {
     measured: true,
-    lead: 'First reporting period under the Cholla Behavioral Health brand. <b>Facebook is the mover</b>: 4.6K views, ' +
-          'up <b>405.9%</b> vs. the prior 28 days, with unique viewers up 650.2% to 2,303 — driven by an Aug 18 breakout ' +
-          '(670 views in a single day, more than the previous five days combined). Interactions rose 360% to 46 and the ' +
-          'page added 14 net follows with zero unfollows. <b>LinkedIn is small but exactly the right audience</b>: 331 ' +
-          'impressions at a 6.0% engagement rate, with followers concentrated in Greater Phoenix and Mental Health Care. ' +
-          'The website held steady — 1,003 visits and 50 leads at a 5% conversion rate. Instagram reporting is coming soon.',
+    lead: 'First reporting period under the Cholla Behavioral Health brand. <b>Facebook now reports from a full 90-day ' +
+          'daily export</b> (May 26 – Aug 23): 19.8K views across the window, and the fuller history reframes the story — ' +
+          '<b>June was the high-water mark at 13.3K views</b>, driven by early- and mid-June content pushes, before July ' +
+          'fell back to 3.0K when posting slowed. The last 28 days are rebuilding: <b>4,463 views, up 382.5%</b> vs. the ' +
+          'prior 28, interactions up 683% to 47, and the Aug 18 – 19 spike (1,026 views over two days) doing much of the ' +
+          'work. The page added a net <b>+51 followers</b> over the 90 days to reach 597. <b>LinkedIn\'s 90-day export ' +
+          'shows the same burst pattern</b>: the May 31 grand-opening post alone drew 855 impressions and 516 clicks, ' +
+          'June rode that momentum to 1,472 impressions, then July (260) and August (188) faded as posting slowed to ' +
+          'roughly two per month. The follower base (+23 in 90 days) stays exactly the right audience — Greater Phoenix ' +
+          'and Mental Health Care. The website held steady — 1,003 visits and 50 leads at a 5% conversion rate. ' +
+          'Instagram reporting is coming soon.',
     kpis: [
-      { lab: 'Facebook views',   num: '4.6K', chg: '▲ 405.9%', dir: 'up', note: '2,303 unique viewers', w: WINDOWS.fbAug20 },
-      { lab: 'FB interactions',  num: '46',   chg: '▲ 360%',   dir: 'up', note: '26 from non-followers', w: WINDOWS.fbAug20 },
+      { lab: 'Facebook views',   num: '4,463', chg: '▲ 382.5%', dir: 'up', note: '19.8K over the full 90-day export', w: WINDOWS.fb28Aug24 },
+      { lab: 'FB interactions',  num: '47',    chg: '▲ 683.3%', dir: 'up', note: '406 over the 90 days', w: WINDOWS.fb28Aug24 },
       { lab: 'Website leads',    num: '50',   chg: '▲ 39%',    dir: 'up', note: '5% conversion rate', w: WINDOWS.siteAug20_14 },
-      { lab: 'LinkedIn impr.',   num: '331',  note: '16 post clicks · 6.0% eng. rate', w: WINDOWS.liAug20 }
+      { lab: 'LinkedIn impr.',   num: '2,382', note: '5 posts · +23 followers over the 90-day export', w: WINDOWS.liFullAug24 }
     ],
     reach: [
-      { label: 'Facebook views (28d)',       value: 4600, color: '#2F6D5E', w: WINDOWS.fbAug20 },
+      { label: 'Facebook views (28d)',       value: 4463, color: '#2F6D5E', w: WINDOWS.fb28Aug24 },
       { label: 'Website visits (14d)',       value: 1003, color: '#3090CC', w: WINDOWS.siteAug20_14 },
-      { label: 'LinkedIn impressions (30d)', value: 331,  color: '#D97B2F', w: WINDOWS.liAug20 }
+      { label: 'LinkedIn impressions (90d)', value: 2382, color: '#D97B2F', w: WINDOWS.liFullAug24 }
     ],
     reachNote: 'Each bar is labelled with its own window length because they are NOT the same: Facebook is 28 days, the ' +
-               'website figure is 14 days and LinkedIn is 30 days. Read the bars as per-channel totals for those windows, ' +
-               'not as a like-for-like comparison. Instagram is omitted — its reporting is coming soon.',
+               'website figure is 14 days and LinkedIn is the full 90-day export. Read the bars as per-channel totals ' +
+               'for those windows, not as a like-for-like comparison. Instagram is omitted — its reporting is coming soon.',
     rollup: {
       head: ['Channel', 'Reach', 'Engagement', 'Leads / contacts', 'Followers', 'Source window'],
       rows: [
         ['Website',   '1,003 visits',    '5% conversion rate',           '50 leads',        '—',            WINDOWS.siteAug20_14],
-        ['Facebook',  '4.6K views',      '46 interactions',              '124 page visits', '597',          WINDOWS.fbAug20],
-        ['LinkedIn',  '331 impressions', '16 post clicks · 4 reactions', '22 page searches','338 · +5 new', WINDOWS.liAug20],
+        ['Facebook',  '4,463 views (28d)', '47 interactions (28d)',      '130 page visits (28d)', '597 · +51 net (90d)', WINDOWS.fb28Aug24],
+        ['LinkedIn',  '2,382 impressions (90d)', '591 clicks · 37 reactions', '125 page views', '338 · +23 new (90d)', WINDOWS.liFullAug24],
         ['Instagram', 'coming soon',     '—',                            '—',               '—',            '—']
       ]
     }
@@ -82,62 +94,61 @@ var SNAP_AUG20 = {
   channels: {
     facebook: {
       measured: true,
-      source: 'source: Meta Business Suite · 28-day window vs. prior 28 days · daily series from the 7-day export',
-      window: WINDOWS.fbAug20,
+      source: 'source: Meta Business Suite daily exports · full 90-day window · 28-day and 7-day cuts summed from the same export',
+      window: WINDOWS.fb90Aug24,
       kpis: [
-        { lab: 'Views',            num: '4.6K',  chg: '▲ 405.9%', dir: 'up', w: WINDOWS.fbAug20 },
-        { lab: 'Unique viewers',   num: '2,303', chg: '▲ 650.2%', dir: 'up', w: WINDOWS.fbAug20 },
-        { lab: 'Interactions',     num: '46',    chg: '▲ 360%',   dir: 'up', note: '20 followers · 26 non-followers', w: WINDOWS.fbAug20 },
-        { lab: 'Page visits',      num: '124',   chg: '▲ 53.1%',  dir: 'up', w: WINDOWS.fbAug20 },
-        { lab: 'Net follows',      num: '+14',   chg: '▲ 250%',   dir: 'up', note: '0 unfollows', w: WINDOWS.fbAug20 },
-        { lab: 'Followers (lifetime)', num: '597', w: WINDOWS.fbAug20 }
+        { lab: 'Views (90d)',        num: '19.8K', note: 'peak day Jun 5: 2,622', w: WINDOWS.fb90Aug24 },
+        { lab: 'Views (28d)',        num: '4,463', chg: '▲ 382.5%', dir: 'up', note: 'vs. Jun 29 – Jul 26', w: WINDOWS.fb28Aug24 },
+        { lab: 'Interactions (28d)', num: '47',    chg: '▲ 683.3%', dir: 'up', note: '406 over the 90 days', w: WINDOWS.fb28Aug24 },
+        { lab: 'Page visits (28d)',  num: '130',   chg: '▲ 56.6%',  dir: 'up', note: '612 over the 90 days', w: WINDOWS.fb28Aug24 },
+        { lab: 'Net follows (90d)',  num: '+51',   chg: '▲ 50%',    dir: 'up', note: '53 follows · 2 unfollows (Meta breakdown)', w: WINDOWS.fb90Aug24 },
+        { lab: 'Followers (lifetime)', num: '597', w: WINDOWS.fb90Aug24 }
       ],
       weekly: {
-        title: 'Daily views — 7-day export',
-        note: 'Aug 18 is the breakout: 670 views in a single day, followed by 356 on Aug 19 — together more than the ' +
-              'previous five days combined.',
+        title: 'Monthly views — daily export summed by calendar month',
+        note: 'May and August are partial months (the export runs May 26 – Aug 23). June is the high-water mark: 13,322 ' +
+              'views, driven by the Jun 4 – 6 push (peak day Jun 5: 2,622) and the Jun 17 – 19 push. July fell back to ' +
+              '3,004 as posting slowed; August is climbing again on the Jul 30 – Aug 1 and Aug 18 – 19 spikes.',
         series: [
-          { label: 'Aug 13', value: 9 }, { label: 'Aug 14', value: 86 }, { label: 'Aug 15', value: 100 },
-          { label: 'Aug 16', value: 18 }, { label: 'Aug 17', value: 10 }, { label: 'Aug 18', value: 670 },
-          { label: 'Aug 19', value: 356 }
+          { label: 'May 26–31', value: 1149 }, { label: 'June', value: 13322 },
+          { label: 'July', value: 3004 }, { label: 'Aug 1–23', value: 2337 }
         ]
       },
       supporting: {
-        title: 'Supporting stats',
-        head: ['Metric', 'Value', 'vs. prior period'],
+        title: 'Window cuts — summed from the daily export',
+        head: ['Metric', 'Last 28d', 'vs. prior 28d', 'Last 7d', 'vs. prior 7d'],
         rows: [
-          ['Views from non-followers (28d)', '83.4%', '▲ 14.7%'],
-          ['Views from followers (28d)', '16.6%', '▼ 39.1%'],
-          ['Interactions from non-followers (28d)', '26', '▲ 1.2K%'],
-          ['Interactions from followers (28d)', '20', '▲ 150%'],
-          ['Views (7d, all organic)', '1,249', '▲ 534%'],
-          ['Viewers (7d)', '628', '▲ 554.2%'],
-          ['Content interactions (7d)', '15', '▲ 400%'],
-          ['3-second video views (7d)', '7', '▼ 61.1%'],
-          ['Watch time (7d)', '1m 37s', '▼ 79.5%'],
-          ['Reels views (7d)', '13', '▼ 67.5%'],
-          ['Messaging contacts (7d)', '1', '▲ 100%']
+          ['Views', '4,463', '▲ 382.5%', '1,147', '▲ 303.9%'],
+          ['Content interactions', '47', '▲ 683.3%', '14', '▲ 600%'],
+          ['Page visits', '130', '▲ 56.6%', '40', '▲ 11.1%'],
+          ['Page follows', '14', '▲ 250%', '5', '▲ 66.7%'],
+          ['Link clicks', '0', '2 in prior 28d', '0', '—'],
+          ['Messaging contacts', '2', '▼ 33.3%', '—', 'Meta 28-day tile']
         ]
       },
       audience: {
-        title: 'Audience demographics',
-        note: 'From the Meta audience export. The audience is local and adult: Phoenix plus Mesa, Glendale, Tucson and ' +
-              'Scottsdale make up the top five cities, 97.8% of the audience is in the United States, and women 35–44 ' +
-              'are the single largest segment.',
+        title: 'Audience demographics — current followers',
+        note: 'From the Meta audience export (current-audience demographics). The audience is local and adult: ' +
+              'Phoenix-metro cities fill the top five, 98.2% is in the United States, and women 35–44 are the largest ' +
+              'segment. Meta\'s separate potential-audience export describes the generic US Facebook population and is ' +
+              'deliberately not loaded.',
         head: ['Breakdown', 'Detail'],
         rows: [
-          ['Top cities', 'Phoenix 44.6% · Mesa 8.4% · Glendale 3.5% · Tucson 3.2% · Scottsdale 2.7%'],
-          ['Age &amp; gender', 'Women 35–44: 22.9% · Men 35–44: 16.8% · Men 45–54: 15.3% · Women 45–54: 12.9%'],
-          ['Gender split', '≈50.7% women · 49.3% men'],
-          ['Top country', 'United States 97.8%']
+          ['Top cities', 'Phoenix 45.4% · Mesa 8.4% · Glendale 3.9% · Tucson 3.2% · Peoria 2.2%'],
+          ['Age &amp; gender', 'Women 35–44: 22.5% · Men 35–44: 16.8% · Men 45–54: 15.2% · Women 45–54: 13.4%'],
+          ['Gender split', '≈50.8% women · 49.2% men'],
+          ['Top country', 'United States 98.2%']
         ]
       },
-      pendingNote: '<b>More Facebook data incoming:</b> top posts, content formats and messaging detail will be added ' +
-                   'with the next export.',
-      footnote: 'The page is rebuilding reach fast from a small base: views up 405.9% and viewers up 650.2% in 28 days, ' +
-                'with the Aug 18 single-day breakout doing much of the work. Growth is coming from outside the follower ' +
-                'base — 83.4% of views and 26 of 46 interactions are from non-followers — which is the right shape for ' +
-                'audience growth. Identify the Aug 18 post and repeat its format.'
+      warn: '<b>Unique viewers intentionally not totalled:</b> the daily export\'s "Viewers" column is deduplicated per ' +
+            'day only, and summing it double-counts people across days. Window-level unique-viewer figures will be loaded ' +
+            'when Meta\'s own dedup tiles are exported. Peak viewer day in the window: Jun 5 with 1,524.',
+      pendingNote: '<b>Still pending from Meta:</b> top posts, content formats, watch time and messaging detail were ' +
+                   'not part of this export batch.',
+      footnote: 'The 90-day export reframes the story: June — 13.3K views, 313 interactions, 350 page visits — is the ' +
+                'high-water mark, and July\'s collapse to 3.0K views tracks the posting gap, not audience loss. The last ' +
+                '28 days are rebuilding fast (views ▲ 382.5%, interactions ▲ 683.3%), and follows arrive in the same ' +
+                'bursts as views. Reach on this page is earned per post; consistency is the lever.'
     },
     website: {
       measured: true,
@@ -180,35 +191,47 @@ var SNAP_AUG20 = {
     },
     linkedin: {
       measured: true,
-      source: 'source: LinkedIn Page analytics · 30-day export',
+      source: 'source: LinkedIn Page analytics daily exports · full 90-day window · 15-day cuts summed from the same export',
       showCompetitors: true,
-      window: WINDOWS.liAug20,
+      window: WINDOWS.liFullAug24,
       kpis: [
-        { lab: 'Impressions',     num: '331',  note: '3 posts · all organic', w: WINDOWS.liAug20 },
-        { lab: 'Post clicks',     num: '16',   note: '4 reactions · 0 comments', w: WINDOWS.liAug20 },
-        { lab: 'Engagement rate', num: '6.0%', note: 'clicks + reactions vs. impressions', w: WINDOWS.liAug20 },
-        { lab: 'New followers',   num: '+5',   note: 'all organic', w: WINDOWS.liAug20 },
-        { lab: 'Page followers',  num: '338',  note: 'lifetime total', w: WINDOWS.liAug20 }
+        { lab: 'Impressions (90d)', num: '2,382', note: '5 posts · all organic · peak day Jun 4: 444', w: WINDOWS.liFullAug24 },
+        { lab: 'Clicks (90d)',      num: '591',  note: '516 from the May 31 grand-opening post', w: WINDOWS.liFullAug24 },
+        { lab: 'Reactions (90d)',   num: '37',   note: '2 comments · 1 repost', w: WINDOWS.liFullAug24 },
+        { lab: 'New followers (90d)', num: '+23', note: 'all organic', w: WINDOWS.liFullAug24 },
+        { lab: 'Page views (90d)',  num: '125',  w: WINDOWS.liFullAug24 },
+        { lab: 'Page followers',    num: '338',  note: 'lifetime total as of the Aug 18 export', w: 'as of Aug 18, 2026' }
       ],
-      weekly: {
-        title: 'Weekly impressions',
-        note: 'The Aug 17 week is partial — the export window closes Aug 18. All three posts landed Jul 21 – 30; ' +
-              'impressions decay once posting stops.',
+      monthly: {
+        title: 'Monthly impressions',
+        note: 'May and August are partial months (the export runs May 25 – Aug 22). The May 31 grand-opening post and ' +
+              'its June momentum account for most of the window\'s reach; July and August fade as posting slowed to ' +
+              'about two posts per month.',
         series: [
-          { label: 'Jul 20', value: 64 }, { label: 'Jul 27', value: 120 }, { label: 'Aug 3', value: 74 },
-          { label: 'Aug 10', value: 67 }, { label: 'Aug 17*', value: 6 }
+          { label: 'May 25–31', value: 462 }, { label: 'June', value: 1472 },
+          { label: 'July', value: 260 }, { label: 'Aug 1–22', value: 188 }
+        ]
+      },
+      monthlyFollowers: {
+        title: 'Monthly new followers',
+        note: 'All 23 new followers in the window are organic. June — the month with the grand-opening momentum — ' +
+              'accounts for 13 of them.',
+        series: [
+          { label: 'May 25–31', value: 3 }, { label: 'June', value: 13 },
+          { label: 'July', value: 2 }, { label: 'Aug 1–22', value: 5 }
         ]
       },
       visitors: {
         title: 'Page visitors',
         head: ['Metric', 'Value'],
         rows: [
-          ['Page views (30d)', '39'],
-          ['— of which Aug 4 – 18', '23'],
-          ['— of which Jul 20 – Aug 3', '16'],
-          ['Posts published', '3'],
-          ['Reactions', '4'],
-          ['Reposts', '0']
+          ['Page views (90d)', '125'],
+          ['— of which Aug 8 – 22', '20'],
+          ['— of which Jul 24 – Aug 7', '20'],
+          ['Posts published (90d)', '5'],
+          ['Reactions (90d)', '37'],
+          ['Comments (90d)', '2'],
+          ['Reposts (90d)', '1']
         ]
       },
       search: {
@@ -221,19 +244,21 @@ var SNAP_AUG20 = {
         ]
       },
       topPosts: {
-        title: 'Top posts by impressions',
+        title: 'All posts in the 90-day window, by impressions',
         head: ['Post', 'Posted', 'Impr.', 'Clicks', 'Likes', 'Eng. rate'],
         rows: [
-          ['"Recovery doesn\'t happen in one building…"', 'Jul 30', '182', '7', '2', '4.9%'],
-          ['"Need more support than weekly therapy…"', 'Jul 21', '70', '1', '1', '2.9%'],
-          ['"Cholla is a proud partner…" (partnership announcement)', 'Jul 21', '55', '3', '2', '9.1%']
+          ['🎉 Pre-Grand Opening Party announcement', 'May 31', '855', '516', '19', '62.8%'],
+          ['"You deserve to be well…"', 'Jun 3', '197', '6', '3', '5.1%'],
+          ['"Recovery doesn\'t happen in one building…" (Sanctuary visit)', 'Jul 30', '183', '7', '2', '4.9%'],
+          ['"Need more support than weekly therapy…" (IOP)', 'Jul 21', '70', '1', '1', '2.9%'],
+          ['"Cholla is a proud partner…" (Sanctuary Community Initiative)', 'Jul 21', '55', '3', '2', '9.1%']
         ]
       },
       location: {
-        title: 'Follower location',
+        title: 'Follower location (lifetime)',
         head: ['Location', 'Followers'],
         rows: [
-          ['Greater Phoenix Area', '229'], ['Los Angeles Metro', '10'], ['Greater Tucson Area', '10'],
+          ['Greater Phoenix Area', '230'], ['Los Angeles Metro', '10'], ['Greater Tucson Area', '10'],
           ['New York City Metro', '6'], ['Miami – Fort Lauderdale', '5']
         ]
       },
@@ -241,7 +266,7 @@ var SNAP_AUG20 = {
         title: 'Followers by job function',
         head: ['Function', 'Followers'],
         rows: [
-          ['Business Development', '89'], ['Healthcare Services', '74'], ['Community &amp; Social Services', '33'],
+          ['Business Development', '87'], ['Healthcare Services', '75'], ['Community &amp; Social Services', '33'],
           ['Sales', '24'], ['Operations', '12']
         ]
       },
@@ -249,7 +274,7 @@ var SNAP_AUG20 = {
         title: 'Follower industry',
         head: ['Industry', 'Followers'],
         rows: [
-          ['Mental Health Care', '122'], ['Hospitals &amp; Health Care', '41'], ['Medical Practices', '23'],
+          ['Mental Health Care', '123'], ['Hospitals &amp; Health Care', '42'], ['Medical Practices', '22'],
           ['Outpatient Care Centers', '8'], ['Higher Education', '8']
         ]
       },
@@ -257,38 +282,42 @@ var SNAP_AUG20 = {
         title: 'Follower seniority',
         head: ['Seniority', 'Followers'],
         rows: [
-          ['Entry', '91'], ['Senior', '89'], ['Director', '48'], ['Owner', '31'], ['CXO', '29']
+          ['Entry', '91'], ['Senior', '89'], ['Director', '47'], ['Owner', '31'], ['CXO', '30']
         ]
       },
       visitorFunction: {
-        title: 'Page visitors by job function (30d)',
-        head: ['Function', 'Visitors'],
+        title: 'Page visitors by job function (90d)',
+        head: ['Function', 'Page views'],
         rows: [
-          ['Real Estate', '7'], ['Military &amp; Protective Services', '5'], ['Research', '3'], ['Information Technology', '3']
+          ['Business Development', '40'], ['Community &amp; Social Services', '17'], ['Sales', '15'],
+          ['Marketing', '10'], ['Operations', '9']
         ]
       },
       searchingCompanies: {
         title: 'Top page-searcher companies',
         head: ['Company', 'Source'],
         rows: [
-          ['America\'s Rehab Campuses', 'page search demographics'],
-          ['AriseVida Care', 'page search demographics']
+          ['America\'s Rehab Campuses', 'page search demographics (Aug 12 – 18 export)'],
+          ['AriseVida Care', 'page search demographics (Aug 12 – 18 export)']
         ]
       },
-      footnote: 'The audience is small (338 followers) but precisely the referral network Cholla wants: 229 of 338 ' +
-                'followers are in Greater Phoenix, the #1 industry is Mental Health Care (122), and rehab operators are ' +
-                'the top companies searching for the page. Cadence is the constraint — 3 posts in 30 days, and the ' +
-                'Aug 4 – 18 half of the window, with no new posts, produced barely a third of the impressions of the ' +
-                'half that had them.'
+      footnote: 'The 90-day export confirms the audience is small but precisely the referral network Cholla wants: 230 ' +
+                'of 338 followers are in Greater Phoenix and the #1 follower industry is Mental Health Care (123). It ' +
+                'also shows what works — the May 31 grand-opening post did 855 impressions and 516 clicks on its own, ' +
+                'and June (the month that rode it) delivered 1,472 impressions and 13 of the window\'s 23 new followers. ' +
+                'Cadence is the constraint: 5 posts in 90 days, and every quiet stretch shows up as a reach collapse ' +
+                'within two weeks.'
     }
   },
   recommendations: [
-    '<b>Identify and repeat the Aug 18 Facebook breakout.</b> One day produced 670 views — more than the prior five days ' +
-    'combined — and 83.4% of the window\'s views came from non-followers. Find the post behind the spike and make its ' +
-    'format a template.',
-    '<b>Raise LinkedIn posting cadence.</b> All three posts landed Jul 21 – 30; the Aug 4 – 18 half of the window had ' +
-    'none and impressions fell by roughly two-thirds. The 6.0% engagement rate says content supply, not content quality, ' +
-    'is the constraint.',
+    '<b>Reverse-engineer the June formula on Facebook.</b> The 90-day export shows reach arrives in bursts: the Jun 4 – 6 ' +
+    'push (peak day 2,622 views) and the Jun 17 – 19 push made June a 13.3K-view month, and July collapsed to 3.0K when ' +
+    'the pushes stopped. Identify what those June posts did and repeat it on a schedule — the Jul 30 – Aug 1 and ' +
+    'Aug 18 – 19 spikes show the audience still responds every time.',
+    '<b>Raise LinkedIn posting cadence — and repeat the milestone-post format.</b> Five posts in 90 days produced ' +
+    '2,382 impressions, and one of them — the May 31 grand-opening announcement — drove 855 impressions and 516 clicks ' +
+    'on its own. July (260 impressions) and August (188) show what happens in the quiet stretches. Content supply, not ' +
+    'content quality, is the constraint.',
     '<b>Add competitor pages to LinkedIn\'s competitor tracker.</b> The competitor export currently reports only the ' +
     'Cholla page, so there is no benchmark. America\'s Rehab Campuses and AriseVida Care — the top companies searching ' +
     'the page — are natural additions.',
@@ -307,11 +336,11 @@ var REPORT_ORDER = ['2026-08-20'];
 /* ── LinkedIn competitor comparison (separate export) ─────────────────── */
 var COMPETITORS = {
   title: 'LinkedIn competitor comparison',
-  source: 'source: LinkedIn competitor analytics',
-  window: WINDOWS.competitor30,
-  head: ['Page', 'Followers', 'New followers', 'Posts', 'Comments', 'Reactions'],
+  source: 'source: LinkedIn competitor analytics export',
+  window: WINDOWS.competitor90,
+  head: ['Page', 'New followers', 'Posts', 'Comments', 'Reactions'],
   rows: [
-    ['Cholla Behavioral Health (You)', '338', '+5', '3', '0', '4']
+    ['Cholla Behavioral Health (You)', '+23', '5', '2', '37']
   ],
   youIndex: 0,
   note: 'Competitor pages have not been added to LinkedIn\'s competitor tracker yet, so only the Cholla page reports. ' +
@@ -361,6 +390,105 @@ var APEX = {
         'the range before this section goes outside the team.'
 };
 
+/* ── Apex Web Studios — monthly SEO reports (apex.html tab) ──────────────
+   One entry per monthly report PDF, newest first in APEX_SEO_ORDER.
+   Only figures that appear as text in the report are loaded; data that
+   exists only as screenshots (GMB stats, top queries, traffic sources)
+   is listed as pending until the underlying exports are provided.      */
+var APEX_SEO_ORDER = ['2026-05'];
+var APEX_SEO = {
+  '2026-05': {
+    id: '2026-05',
+    label: 'May 2026 report',
+    window: WINDOWS.apexSeoMay26,
+    source: 'source: Apex Web Studios — Monthly SEO Report, chollabehavioralhealth.com',
+    summary: {
+      lead: 'First Apex Web Studios report loaded into the dashboard, so there is no prior month to compare against yet. ' +
+            'In May 2026 Google Search served the site <b>65,600 impressions</b> and <b>1,850 clicks</b> (a 2.8% ' +
+            'click-through rate), and GA4 recorded <b>432 users</b> — <b>203 of them organic</b>, making organic search ' +
+            'the single largest door into the site at 47% of all users. Rankings are early-stage: all 16 tracked keywords ' +
+            'sit on pages 4–10 of Google. The closest to breaking through are <b>&ldquo;Behavioral Health Services Near ' +
+            'Me&rdquo; (#35)</b>, <b>&ldquo;Partial Hospitalization Program Phoenix AZ&rdquo; (#36)</b> and ' +
+            '<b>&ldquo;Outpatient Treatment Program in Phoenix, AZ&rdquo; (#37)</b>; most addiction-treatment terms rank ' +
+            '60–99. One important caveat: the site went through an attack, and malicious queries and pages are still ' +
+            'polluting Search Console — the impression and click totals should be read as inflated until Google finishes ' +
+            'clearing the spam from its index (~45 days from the May cleanup). Apex disavowed the link-farm backlinks and ' +
+            'plans a phase-2 content push — user personas, content clusters, blogs and technical SEO — for the coming months.',
+      kpis: [
+        { lab: 'Search impressions', num: '65.6K', note: 'Google Search Console · inflated by spam queries', w: WINDOWS.apexSeoMay26 },
+        { lab: 'Search clicks',      num: '1,850', note: '2.8% click-through rate', w: WINDOWS.apexSeoMay26 },
+        { lab: 'GA4 users',          num: '432',   note: 'all channels', w: WINDOWS.apexSeoMay26 },
+        { lab: 'Organic users',      num: '203',   note: '47% of all GA4 users', w: WINDOWS.apexSeoMay26 }
+      ]
+    },
+    distribution: {
+      title: 'Where the 16 tracked keywords rank',
+      series: [
+        { label: 'Positions 31 – 40',  value: 3 },
+        { label: 'Positions 41 – 60',  value: 2 },
+        { label: 'Positions 61 – 70',  value: 4 },
+        { label: 'Positions 71 – 80',  value: 3 },
+        { label: 'Positions 81 – 100', value: 4 }
+      ],
+      note: 'No tracked keyword is on pages 1–3 yet. The three keywords in the 31–40 band are the nearest-term targets.'
+    },
+    keywords: {
+      title: 'Keyword rankings — May 2026',
+      head: ['#', 'Keyword', 'Position (May)'],
+      rows: [
+        ['1',  'Addiction Treatment Center Phoenix AZ', '87'],
+        ['2',  'Drug Addiction Treatment in Phoenix, AZ', '75'],
+        ['3',  'Opioid Treatment Programs in Phoenix, AZ', '60'],
+        ['4',  'Substance Abuse Treatment Programs Phoenix AZ', '93'],
+        ['5',  'Outpatient Substance Abuse Treatment in Phoenix, AZ', '99'],
+        ['6',  'Behavioral Health Services Phoenix AZ', '72'],
+        ['7',  'Behavioral Health Services Near Me', '35'],
+        ['8',  'Mental Health Therapy in Phoenix AZ', '61'],
+        ['9',  'Intensive Outpatient Program Phoenix AZ', '70'],
+        ['10', 'Intensive Outpatient Treatment in Phoenix, AZ', '70'],
+        ['11', 'Outpatient Treatment in Phoenix, AZ', '76'],
+        ['12', 'Outpatient Treatment Program in Phoenix, AZ', '37'],
+        ['13', 'Outpatient Treatment Center in Phoenix, AZ', '53'],
+        ['14', 'Outpatient Addiction Treatment in Phoenix, AZ', '86'],
+        ['15', 'Outpatient Drug Treatment in Phoenix, AZ', '63'],
+        ['16', 'Partial Hospitalization Program Phoenix AZ', '36']
+      ],
+      note: 'Positions as reported by Apex Web Studios. Future monthly reports will add a month-over-month movement column.'
+    },
+    attackWarn: '<b>Site attack — read May\'s totals with caution:</b> the website went through an attack, and malicious ' +
+                'queries and pages are populating the Search Console reports. Apex has removed the malicious URLs and ' +
+                'queries; Google takes around 45 days to clear everything from its index. Until then, impression and ' +
+                'click totals include spam-query traffic.',
+    disavow: 'In May, Apex performed a <b>disavow</b> on the domain to disassociate the site from backlinks created by ' +
+             'automated link farming — a black-hat technique used to de-rank and penalize a website. The disavow file ' +
+             'signals Google that the domain has no affiliation with the spammy backlinks, and Google breaks the ' +
+             'relationship between the sites.',
+    pending: {
+      note: 'These appear in the May PDF only as screenshots, so per this dashboard\'s data rules the figures are not ' +
+            'transcribed. Ask Apex for the underlying exports to load them.',
+      items: [
+        'Google Business Profile statistics',
+        'Top queries by clicks & impressions (GSC)',
+        'Top-performing service pages (GSC)',
+        'Traffic sources / mediums (GA4)'
+      ]
+    },
+    nextMoves: [
+      'Review Search Console and Analytics to identify any problems',
+      'Create user personas to attract more targeted organic traffic and leads',
+      'Research new blog-post topics against those personas',
+      'Create content clusters for the new topics',
+      'Write SEO-optimized content for the blogs',
+      'Design multiple creatives per blog to target Google Images',
+      'Manage crawl budget — deploy blogs and submit to GSC strategically',
+      'Build backlinks to the blogs to generate relevant traffic',
+      'Update URL structure per Google\'s latest guidelines',
+      'Update the sitemap and submit it to GSC for crawling',
+      'Implement advanced technical SEO (e.g. schema structured data)'
+    ]
+  }
+};
+
 /* ── L10 leadership dashboard ─────────────────────────────────────────────
    Cleared for the Cholla rebrand — the section and the Projects page stay
    in place; rows repopulate when a new L10 dashboard is imported. */
@@ -378,27 +506,26 @@ var TWOWEEK = {
   last: WINDOWS.twLast,
   prior: WINDOWS.twPrior,
   note: 'Figures on this page are short-window cuts, so they are intentionally smaller than the Report page totals. ' +
-        'Facebook currently has only a 7-day daily export (Aug 13 – 19); LinkedIn uses its own 15-day export cuts. ' +
-        'Deltas come from each platform\'s native comparison where available, not from arithmetic across snapshots.',
+        'Facebook and LinkedIn are both summed from their full daily exports (Facebook 14-day cuts, LinkedIn 15-day ' +
+        'cuts); the website remains on its own Aug 6 – 19 fortnight. Each block is labelled with its exact windows.',
   channels: [
     {
       key: 'facebook',
-      windowOverride: 'Aug 13 – 19, 2026 vs. the prior 7 days',
-      windowChip: 'Meta 7-day export',
-      kpiWindow: 'Aug 13 – 19, 2026',
-      head: ['Metric', 'Aug 13 – 19', 'vs. prior 7 days'],
+      windowOverride: 'Aug 10 – 23, 2026 vs. Jul 27 – Aug 9, 2026',
+      windowChip: 'Meta daily export · 14 days vs. 14 days',
+      kpiWindow: 'Aug 10 – 23, 2026',
+      head: ['Metric', 'Aug 10 – 23', 'vs. prior 14 days'],
       rows: [
-        ['Views', '1,249', '▲ 534%'],
-        ['Engagement (total)', '15', '▲ 400%'],
-        ['Unique viewers', '628', '▲ 554.2%'],
-        ['3-second video views', '7', '▼ 61.1%'],
-        ['Watch time', '1m 37s', '▼ 79.5%'],
-        ['Reels views', '13', '▼ 67.5%'],
-        ['Page follows', '6', '▲ 200%'],
-        ['Messaging contacts', '1', '▲ 100%']
+        ['Views', '1,431', '▼ 52.8%'],
+        ['Engagement (total)', '16', '▼ 48.4%'],
+        ['Page visits', '76', '▲ 40.7%'],
+        ['Page follows', '8', '▲ 33.3%'],
+        ['Link clicks', '0', '0 in both windows']
       ],
-      note: 'Only a 7-day daily export is available for Facebook this period, so this block is a 7-day cut rather than ' +
-            'a 14-day one. All 1,249 views were organic; the Aug 18 spike (670 views) is the driver.'
+      note: 'A true 14-day cut is now possible — both fortnights are summed from the same Meta daily export ' +
+            '(May 26 – Aug 23). The views decline is spike timing, not audience loss: the prior fortnight contained the ' +
+            'Jul 30 – Aug 1 surge (2,455 views over three days), while this one had the Aug 18 – 19 spike (1,026). ' +
+            'Page visits and follows still grew.'
     },
     {
       key: 'website',
@@ -415,20 +542,20 @@ var TWOWEEK = {
     },
     {
       key: 'linkedin',
-      windowOverride: 'Aug 4 – 18, 2026 vs. Jul 20 – Aug 3, 2026',
-      windowChip: 'LinkedIn export cut · 15 days vs. 15 days',
-      head: ['Metric', 'Aug 4 – 18', 'Jul 20 – Aug 3', 'Change'],
+      windowOverride: 'Aug 8 – 22, 2026 vs. Jul 24 – Aug 7, 2026',
+      windowChip: 'LinkedIn daily export · 15 days vs. 15 days',
+      head: ['Metric', 'Aug 8 – 22', 'Jul 24 – Aug 7', 'Change'],
       rows: [
-        ['Impressions', '91', '240', '▼ 62%'],
-        ['Post clicks', '5', '11', '▼ 55%'],
-        ['Reactions', '0', '4', '▼ 100%'],
+        ['Impressions', '85', '209', '▼ 59%'],
+        ['Post clicks', '6', '7', '▼ 14%'],
+        ['Reactions', '0', '5', '▼ 100%'],
         ['New followers', '2', '3', '▼ 33%'],
-        ['Posts published', '0', '3', '▼ 3 posts'],
-        ['Page views', '23', '16', '▲ 44%']
+        ['Posts published', '0', '1', '▼ 1 post'],
+        ['Page views', '20', '20', '— no change']
       ],
-      note: 'Summed from LinkedIn\'s daily exports (15 days vs. 15 days, offset two days from the Meta/website ' +
-            'fortnight above). All three of the window\'s posts landed in the earlier half — the Aug 4 – 18 decline ' +
-            'is a posting gap, not an audience change.'
+      note: 'Summed from LinkedIn\'s daily exports (15 days vs. 15 days, offset from the Meta fortnight above). The ' +
+            'window\'s only recent post (Jul 30) landed in the earlier half — the Aug 8 – 22 decline is a posting gap, ' +
+            'not an audience change.'
     }
   ]
 };
@@ -447,46 +574,95 @@ var SERIES = {
     'Form submissions': [{ label: 'Aug 6 snapshot', value: 45,   w: WINDOWS.siteAug6 }]
   },
   facebook: {
-    'Daily views (Aug 13 – 19)': [
-      { label: 'Aug 13', value: 9,   w: WINDOWS.fb7Aug20 },
-      { label: 'Aug 14', value: 86,  w: WINDOWS.fb7Aug20 },
-      { label: 'Aug 15', value: 100, w: WINDOWS.fb7Aug20 },
-      { label: 'Aug 16', value: 18,  w: WINDOWS.fb7Aug20 },
-      { label: 'Aug 17', value: 10,  w: WINDOWS.fb7Aug20 },
-      { label: 'Aug 18', value: 670, w: WINDOWS.fb7Aug20 },
-      { label: 'Aug 19', value: 356, w: WINDOWS.fb7Aug20 }
+    'Weekly views (90-day export)': [
+      { label: 'May 26', value: 1716, w: WINDOWS.fb90Aug24 },
+      { label: 'Jun 2',  value: 6158, w: WINDOWS.fb90Aug24 },
+      { label: 'Jun 9',  value: 474,  w: WINDOWS.fb90Aug24 },
+      { label: 'Jun 16', value: 4884, w: WINDOWS.fb90Aug24 },
+      { label: 'Jun 23', value: 1202, w: WINDOWS.fb90Aug24 },
+      { label: 'Jun 30', value: 250,  w: WINDOWS.fb90Aug24 },
+      { label: 'Jul 7',  value: 222,  w: WINDOWS.fb90Aug24 },
+      { label: 'Jul 14', value: 74,   w: WINDOWS.fb90Aug24 },
+      { label: 'Jul 21', value: 389,  w: WINDOWS.fb90Aug24 },
+      { label: 'Jul 28', value: 2627, w: WINDOWS.fb90Aug24 },
+      { label: 'Aug 4',  value: 392,  w: WINDOWS.fb90Aug24 },
+      { label: 'Aug 11', value: 287,  w: WINDOWS.fb90Aug24 },
+      { label: 'Aug 18', value: 1137, w: WINDOWS.fb90Aug24, partial: 'through Aug 23 — 6-day week' }
     ],
-    'Views (28d)':          [{ label: 'Aug 20 snapshot', value: 4600, w: WINDOWS.fbAug20 }],
-    'Unique viewers (28d)': [{ label: 'Aug 20 snapshot', value: 2303, w: WINDOWS.fbAug20 }],
-    'Interactions (28d)':   [{ label: 'Aug 20 snapshot', value: 46,   w: WINDOWS.fbAug20 }],
-    'Page visits (28d)':    [{ label: 'Aug 20 snapshot', value: 124,  w: WINDOWS.fbAug20 }],
-    'Net follows (28d)':    [{ label: 'Aug 20 snapshot', value: 14,   w: WINDOWS.fbAug20 }],
-    'Followers (lifetime)': [{ label: 'Aug 20 snapshot', value: 597,  w: WINDOWS.fbAug20 }]
+    'Monthly views': [
+      { label: 'May*', value: 1149,  w: 'May 26 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 13322, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 3004,  w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 2337,  w: 'Aug 1 – 23, 2026 (partial)' }
+    ],
+    'Monthly interactions': [
+      { label: 'May*', value: 40,  w: 'May 26 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 313, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 28,  w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 25,  w: 'Aug 1 – 23, 2026 (partial)' }
+    ],
+    'Monthly page visits': [
+      { label: 'May*', value: 52,  w: 'May 26 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 350, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 119, w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 91,  w: 'Aug 1 – 23, 2026 (partial)' }
+    ],
+    'Monthly page follows': [
+      { label: 'May*', value: 6,  w: 'May 26 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 30, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 6,  w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 12, w: 'Aug 1 – 23, 2026 (partial)' }
+    ],
+    'Views (28-day cuts)': [
+      { label: 'Jun 29 – Jul 26', value: 925,  w: WINDOWS.fb28Aug24p },
+      { label: 'Jul 27 – Aug 23', value: 4463, w: WINDOWS.fb28Aug24 }
+    ],
+    'Followers (lifetime)': [{ label: 'Aug 23, 2026', value: 597, w: WINDOWS.fb90Aug24 }]
   },
   instagram: {},
   linkedin: {
+    'Monthly impressions': [
+      { label: 'May*', value: 462,  w: 'May 25 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 1472, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 260,  w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 188,  w: 'Aug 1 – 22, 2026 (partial)' }
+    ],
+    'Monthly clicks': [
+      { label: 'May*', value: 148, w: 'May 25 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 420, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 15,  w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 8,   w: 'Aug 1 – 22, 2026 (partial)' }
+    ],
+    'Monthly new followers': [
+      { label: 'May*', value: 3,  w: 'May 25 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 13, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 2,  w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 5,  w: 'Aug 1 – 22, 2026 (partial)' }
+    ],
+    'Monthly page views': [
+      { label: 'May*', value: 22, w: 'May 25 – 31, 2026 (partial)' },
+      { label: 'Jun',  value: 46, w: 'Jun 1 – 30, 2026' },
+      { label: 'Jul',  value: 26, w: 'Jul 1 – 31, 2026' },
+      { label: 'Aug*', value: 31, w: 'Aug 1 – 22, 2026 (partial)' }
+    ],
+    'Weekly impressions (90-day export)': [
+      { label: 'May 25', value: 462,  w: WINDOWS.liFullAug24 },
+      { label: 'Jun 1',  value: 1232, w: WINDOWS.liFullAug24 },
+      { label: 'Jun 8',  value: 177,  w: WINDOWS.liFullAug24 },
+      { label: 'Jun 15', value: 27,   w: WINDOWS.liFullAug24 },
+      { label: 'Jun 22', value: 23,   w: WINDOWS.liFullAug24 },
+      { label: 'Jun 29', value: 20,   w: WINDOWS.liFullAug24 },
+      { label: 'Jul 6',  value: 85,   w: WINDOWS.liFullAug24 },
+      { label: 'Jul 13', value: 13,   w: WINDOWS.liFullAug24 },
+      { label: 'Jul 20', value: 64,   w: WINDOWS.liFullAug24 },
+      { label: 'Jul 27', value: 120,  w: WINDOWS.liFullAug24 },
+      { label: 'Aug 3',  value: 74,   w: WINDOWS.liFullAug24 },
+      { label: 'Aug 10', value: 67,   w: WINDOWS.liFullAug24 },
+      { label: 'Aug 17', value: 18,   w: WINDOWS.liFullAug24, partial: 'through Aug 22 — 6-day week' }
+    ],
     'Impressions (15-day cuts)': [
-      { label: 'Jul 20 – Aug 3', value: 240, w: '15-day export cuts, Jul 20 – Aug 18, 2026' },
-      { label: 'Aug 4 – 18',     value: 91,  w: '15-day export cuts, Jul 20 – Aug 18, 2026' }
-    ],
-    'Post clicks (15-day cuts)': [
-      { label: 'Jul 20 – Aug 3', value: 11, w: '15-day export cuts, Jul 20 – Aug 18, 2026' },
-      { label: 'Aug 4 – 18',     value: 5,  w: '15-day export cuts, Jul 20 – Aug 18, 2026' }
-    ],
-    'New followers (15-day cuts)': [
-      { label: 'Jul 20 – Aug 3', value: 3, w: '15-day export cuts, Jul 20 – Aug 18, 2026' },
-      { label: 'Aug 4 – 18',     value: 2, w: '15-day export cuts, Jul 20 – Aug 18, 2026' }
-    ],
-    'Page views (15-day cuts)': [
-      { label: 'Jul 20 – Aug 3', value: 16, w: '15-day export cuts, Jul 20 – Aug 18, 2026' },
-      { label: 'Aug 4 – 18',     value: 23, w: '15-day export cuts, Jul 20 – Aug 18, 2026' }
-    ],
-    'Weekly impressions': [
-      { label: 'Jul 20', value: 64,  w: WINDOWS.liAug20 },
-      { label: 'Jul 27', value: 120, w: WINDOWS.liAug20 },
-      { label: 'Aug 3',  value: 74,  w: WINDOWS.liAug20 },
-      { label: 'Aug 10', value: 67,  w: WINDOWS.liAug20 },
-      { label: 'Aug 17', value: 6,   w: WINDOWS.liAug20, partial: 'through Aug 18' }
+      { label: 'Jul 24 – Aug 7', value: 209, w: WINDOWS.li15Aug24p },
+      { label: 'Aug 8 – 22',     value: 85,  w: WINDOWS.li15Aug24 }
     ]
   },
   apex: {
@@ -511,9 +687,10 @@ function contextFor(channel) {
     return {
       kind: 'note',
       title: 'Facebook — reading the trend',
-      body: 'Only one 28-day export has been captured under the Cholla Behavioral Health page so far, so most metrics ' +
-            'show a single period. The daily views series (Aug 13 – 19) is trendable now; snapshot-over-snapshot trends ' +
-            'fill in as more exports land.'
+      body: 'The full 90-day daily export (May 26 – Aug 23, 2026) is loaded, so weekly and monthly series are trendable. ' +
+            'May and August are partial months and the Aug 18 week is a 6-day partial. Unique-viewer counts are ' +
+            'deliberately not summed across days — the daily "Viewers" column double-counts people; window-level ' +
+            'dedup figures come only from Meta\'s own tiles.'
     };
   }
   if (channel === 'website') {

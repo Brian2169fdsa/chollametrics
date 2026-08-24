@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cholla Behavioral Health — Apex Web Studios SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="report.css">
+</head>
+<body><div class="sheet" id="sheet"></div>
+<script src="data.js"></script>
+<script src="ui.js"></script>
+<script>
+/* ── report selector (mirrors the period bar on the Report page) ─────── */
+function apexBar(currentId) {
+  var s = '<div class="periodbar"><label for="apexReport">Monthly report</label>' +
+          '<select id="apexReport" aria-label="Monthly report">';
+  APEX_SEO_ORDER.forEach(function (id) {
+    s += '<option value="' + id + '"' + (id === currentId ? ' selected' : '') + '>' + esc(APEX_SEO[id].label) + '</option>';
+  });
+  s += '</select><span class="meta">One entry per monthly SEO report from Apex Web Studios.</span></div>';
+  return s;
+}
+
+function renderSeoSummary(r) {
+  return '<section>' +
+    '<div class="eyebrow">Executive summary</div>' +
+    '<h2 style="font-size:26px;margin:6px 0 0">SEO at a glance — ' + esc(r.label.replace(' report', '')) + '</h2>' +
+    '<p class="sub" style="margin-top:6px">' + esc(r.source) + ' &nbsp;·&nbsp; <span class="win-chip">' + esc(r.window) + '</span></p>' +
+    '<p class="lead">' + r.summary.lead + '</p>' +
+    kpis(r.summary.kpis) +
+    '<div class="warn">' + r.attackWarn + '</div>' +
+  '</section>';
+}
+
+function renderSeoRankings(r) {
+  var meta = CHANNEL_META.apex;
+  return '<section>' +
+    '<div class="sechead"><span class="dot" style="background:' + meta.color + '"></span><h2>Keyword rankings</h2></div>' +
+    '<p class="sub">source: Apex Web Studios keyword tracker &nbsp;·&nbsp; <span class="win-chip">' + esc(r.window) + '</span></p>' +
+    card(r.distribution.title, hbar(r.distribution.series, { color: meta.color, W: chartW(false) }), r.distribution.note) +
+    card(r.keywords.title, table(r.keywords.head, r.keywords.rows), r.keywords.note) +
+  '</section>';
+}
+
+function renderSeoActivity(r) {
+  return '<section>' +
+    '<div class="sechead"><span class="dot" style="background:var(--teal)"></span><h2>Cleanup &amp; link health</h2></div>' +
+    '<p class="sub">Actions Apex took on the domain this period</p>' +
+    card('Disavow activity', '<p style="margin:0;font-size:14px">' + r.disavow + '</p>') +
+    card('In the PDF but not yet loaded',
+      table(['Data set', 'Status'], r.pending.items.map(function (x) { return [x, 'Pending — screenshots only']; })),
+      r.pending.note) +
+  '</section>';
+}
+
+function renderSeoNextMoves(r) {
+  var s = '<section><div class="eyebrow">Planned by Apex</div>' +
+          '<h2 style="font-size:22px;margin:6px 0 14px">Next moves</h2><ol class="flags">';
+  r.nextMoves.forEach(function (x) { s += '<li>' + esc(x) + '</li>'; });
+  return s + '</ol></section>';
+}
+
+function render(id) {
+  _current = id;
+  var r = APEX_SEO[id];
+  document.getElementById('sheet').innerHTML =
+    pageHeader('Apex Web Studios — SEO',
+      esc(r.label) + ' &nbsp;·&nbsp; Internal / Confidential',
+      'Reporting window: ' + esc(r.window), 'apex') +
+    apexBar(id) +
+    renderSeoSummary(r) +
+    renderSeoRankings(r) +
+    renderSeoActivity(r) +
+    renderSeoNextMoves(r) +
+    pageFooter('Apex Web Studios monthly SEO report · ' + r.window);
+
+  applyDataLabels();
+  document.getElementById('apexReport').addEventListener('change', function () {
+    render(this.value);
+    document.getElementById('apexReport').focus();
+  });
+  document.title = 'Cholla Behavioral Health — Apex SEO · ' + r.label;
+}
+
+var _current = APEX_SEO_ORDER[0], _w = 0, _t;
+function renderCurrent() { _w = chartW(false); render(_current); }
+window.addEventListener('resize', function () {
+  clearTimeout(_t);
+  _t = setTimeout(function () { if (chartW(false) !== _w) { renderCurrent(); } }, 180);
+});
+renderCurrent();
+</script>
+</body></html>

@@ -20,11 +20,12 @@ function headline() {
   var v = row(fb, 'Views'), e = row(fb, 'Engagement (total)'),
       l = row(web, 'Total leads'), c = row(web, 'Conversion rate');
   var fbw = fb.kpiWindow || TWOWEEK.last;
+  function dir(chg) { return String(chg).indexOf('▼') >= 0 ? 'down' : 'up'; }
   return kpis([
-    { lab: 'Facebook views',     num: v[1], chg: v[2], dir: 'up',   w: fbw },
-    { lab: 'Facebook engagement',num: e[1], chg: e[2], dir: 'up',   w: fbw },
-    { lab: 'Website leads',      num: l[1], chg: l[2], dir: 'up',   w: TWOWEEK.last },
-    { lab: 'Conversion rate',    num: c[1], chg: c[2], dir: 'up',   w: TWOWEEK.last }
+    { lab: 'Facebook views',     num: v[1], chg: v[2], dir: dir(v[2]), w: fbw },
+    { lab: 'Facebook engagement',num: e[1], chg: e[2], dir: dir(e[2]), w: fbw },
+    { lab: 'Website leads',      num: l[1], chg: l[2], dir: dir(l[2]), w: TWOWEEK.last },
+    { lab: 'Conversion rate',    num: c[1], chg: c[2], dir: dir(c[2]), w: TWOWEEK.last }
   ]);
 }
 
