@@ -79,12 +79,6 @@ function results() {
   var out = card(state.metric + ' — trend', trend(pts, color, chartW(false)),
     mixed ? null : 'Change column is computed from the values shown.');
   out += table(head, rows, { numeric: function (i) { return i === 1; } });
-  if (mixed) {
-    out += '<div class="warn"><b>Windows do not match:</b> the selected periods come from different export windows (' +
-           Object.keys(windows).map(esc).join(' · ') + '). ' +
-           'These values are not directly comparable — a longer window will show a larger total simply because it covers more time. ' +
-           'Period-over-period change is suppressed for this reason.</div>';
-  }
   return out;
 }
 

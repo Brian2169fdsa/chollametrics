@@ -249,9 +249,9 @@ var SNAP_AUG20 = {
         rows: [
           ['🎉 Pre-Grand Opening Party announcement', 'May 31', '855', '516', '19', '62.8%'],
           ['"You deserve to be well…"', 'Jun 3', '197', '6', '3', '5.1%'],
-          ['"Recovery doesn\'t happen in one building…" (Sanctuary visit)', 'Jul 30', '183', '7', '2', '4.9%'],
+          ['"Recovery doesn\'t happen in one building…" (partner visit)', 'Jul 30', '183', '7', '2', '4.9%'],
           ['"Need more support than weekly therapy…" (IOP)', 'Jul 21', '70', '1', '1', '2.9%'],
-          ['"Cholla is a proud partner…" (Sanctuary Community Initiative)', 'Jul 21', '55', '3', '2', '9.1%']
+          ['"Cholla is a proud partner…" (partnership announcement)', 'Jul 21', '55', '3', '2', '9.1%']
         ]
       },
       location: {
@@ -614,8 +614,8 @@ var SERIES = {
       { label: 'Aug*', value: 12, w: 'Aug 1 – 23, 2026 (partial)' }
     ],
     'Views (28-day cuts)': [
-      { label: 'Jun 29 – Jul 26', value: 925,  w: WINDOWS.fb28Aug24p },
-      { label: 'Jul 27 – Aug 23', value: 4463, w: WINDOWS.fb28Aug24 }
+      { label: 'Jun 29 – Jul 26', value: 925,  w: '28-day cuts from the daily export, May 26 – Aug 23, 2026' },
+      { label: 'Jul 27 – Aug 23', value: 4463, w: '28-day cuts from the daily export, May 26 – Aug 23, 2026' }
     ],
     'Followers (lifetime)': [{ label: 'Aug 23, 2026', value: 597, w: WINDOWS.fb90Aug24 }]
   },
@@ -661,8 +661,8 @@ var SERIES = {
       { label: 'Aug 17', value: 18,   w: WINDOWS.liFullAug24, partial: 'through Aug 22 — 6-day week' }
     ],
     'Impressions (15-day cuts)': [
-      { label: 'Jul 24 – Aug 7', value: 209, w: WINDOWS.li15Aug24p },
-      { label: 'Aug 8 – 22',     value: 85,  w: WINDOWS.li15Aug24 }
+      { label: 'Jul 24 – Aug 7', value: 209, w: '15-day cuts from the daily export, May 25 – Aug 22, 2026' },
+      { label: 'Aug 8 – 22',     value: 85,  w: '15-day cuts from the daily export, May 25 – Aug 22, 2026' }
     ]
   },
   apex: {
