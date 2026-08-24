@@ -159,47 +159,6 @@ function renderRecommendations(snap) {
   return s + '</ol></section>';
 }
 
-/* ── Apex campaign report (vendor report — not period-scoped) ───────── */
-function renderApex() {
-  var B = APEX;
-  return '<section>' +
-  '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap">' +
-    '<div>' +
-      '<div class="sechead"><span class="dot" style="background:var(--gold)"></span><h2>' + esc(B.title) + '</h2></div>' +
-      '<p class="sub">' + esc(B.source) + ' &nbsp;·&nbsp; reporting period: <span class="win-chip">' + esc(B.window) + '</span></p>' +
-    '</div>' +
-    '<img src="logo.png" alt="Apex Web Studios" style="height:44px;width:auto;display:block;flex:0 0 auto">' +
-  '</div>' +
-  '<p class="lead">' + B.intro + '</p>' +
-  card(B.listings.title, table(B.listings.head, B.listings.rows)) +
-  '<h3 style="font-size:15px;margin:18px 0 0;font-family:Inter,sans-serif;font-weight:700;letter-spacing:0">GMB insights</h3>' +
-  kpis(B.gmb, 3) +
-  grid2(
-    '<div class="card"><h3>' + esc(B.rankings.title) + '</h3>' +
-      table(B.rankings.head, B.rankings.rows, { numeric: function () { return false; } }) +
-      '<h3 style="margin-top:16px">' + esc(B.distribution.title) + '</h3>' +
-      table(B.distribution.head, B.distribution.rows) +
-    '</div>',
-    '<div class="card"><h3>' + esc(B.reputation.title) + '</h3>' +
-      table(B.reputation.head, B.reputation.rows) +
-      '<div class="warn">' + B.followUp + '</div>' +
-    '</div>'
-  ) +
-  '<div class="warn">' + B.warn + '</div>' +
-  '</section>';
-}
-
-function renderL10() {
-  var body = L10.rows.length
-    ? card(L10.owner, table(L10.head, L10.rows, { numeric: function () { return false; } }))
-    : '<div class="placeholder" style="padding:16px">No L10 items loaded. Add projects on the Projects page, or send ' +
-      'over the current L10 dashboard to populate this section.</div>';
-  return '<section><div class="eyebrow">L10 meeting</div>' +
-    '<h2 style="font-size:22px;margin:6px 0 4px">Updates &amp; action items</h2>' +
-    '<p class="sub">' + esc(L10.source) + '</p>' + body +
-  '</section>';
-}
-
 /* ── period selector + full render ───────────────────────────────────── */
 function periodBar(currentId) {
   var s = '<div class="periodbar"><label for="period">Reporting period</label>' +
@@ -226,8 +185,6 @@ function render(id) {
     renderInstagram(ch.instagram) +
     renderLinkedIn(ch.linkedin) +
     renderRecommendations(snap) +
-    renderApex() +
-    renderL10() +
     pageFooter(snap.dataLine);
 
   applyDataLabels();
